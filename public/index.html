@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js + PostgreSQL CRUD API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Node.js + PostgreSQL CRUD API</h1>
+            <p>A Dockerized REST API with PostgreSQL database</p>
+        </header>
+
+        <section class="endpoints">
+            <h2>API Endpoints</h2>
+            <div class="endpoint-grid">
+                <div class="endpoint-card">
+                    <h3>GET /items</h3>
+                    <p>Retrieve all items</p>
+                    <a href="/items" class="try-button" target="_blank">Try it</a>
+                </div>
+
+                <div class="endpoint-card">
+                    <h3>POST /items</h3>
+                    <p>Create new item</p>
+                    <button class="try-button" onclick="testEndpoint('POST')">Try it</button>
+                </div>
+
+                <div class="endpoint-card">
+                    <h3>PUT /items/:id</h3>
+                    <p>Update existing item</p>
+                    <button class="try-button" onclick="testEndpoint('PUT')">Try it</button>
+                </div>
+
+                <div class="endpoint-card">
+                    <h3>DELETE /items/:id</h3>
+                    <p>Delete an item</p>
+                    <button class="try-button" onclick="testEndpoint('DELETE')">Try it</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="database-info">
+            <h2>Database Management</h2>
+            <a href="http://localhost:5050" class="db-button" target="_blank">
+                Open pgAdmin (Port 5050)
+            </a>
+        </section>
+
+        <section class="test-section">
+            <h2>Test Console</h2>
+            <div class="test-controls">
+                <select id="endpoint-select">
+                    <option value="GET">GET /items</option>
+                    <option value="POST">POST /items</option>
+                    <option value="PUT">PUT /items/:id</option>
+                    <option value="DELETE">DELETE /items/:id</option>
+                </select>
+                <button onclick="sendRequest()">Send Request</button>
+            </div>
+            <div class="request-response">
+                <div class="request-panel">
+                    <h3>Request</h3>
+                    <textarea id="request-body" placeholder='For POST/PUT requests:{\" name\": \"Example\", \"description\": \"Sample description\" }'></textarea>
+                </div>
+                <div class="response-panel">
+                    <h3>Response</h3>
+                    <pre id="response-output"></pre>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
